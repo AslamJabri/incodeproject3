@@ -1,22 +1,29 @@
 const express = require('express' ) 
 const data = require ('./data')
 const app = express()
-const port = 5001
+const port = process.env.PORT || 3000
 const bcrypt = require('bcrypt');
 
 
 app.use(express.json())
 app.use((express.urlencoded)({extended : false}))
 
-//console.log(message)
-//req-request  , res- response
-//GET request
+//setting ejs engine
+app.set('view engine','ejs')
+
+
+app.get('/',(req , res) => {
+    res.render("index")
+})
+
+//GET request to home 
 app.get('/',(req , res) => {
     res.send("Welcome To our schedule website.")
 })
  app.get('/users',(req , res) => {
          res.send(data.users)
 })
+//route to particular id
 app.get('/users/:id',(req , res) => {
     //const user = [data.user.id];
     res.send(data.users[req.params.id])
