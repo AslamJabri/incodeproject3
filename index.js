@@ -11,18 +11,19 @@ app.use((express.urlencoded)({extended : false}))
 //setting ejs engine
 app.set('view engine','ejs')
 
+app.use(express.static("public"))
 
-app.get('/',(req , res) => {
-    res.render("index")
-})
+
+
 
 //GET request to home 
 app.get('/',(req , res) => {
-    res.send("Welcome To our schedule website.")
+    res.render("pages/index")
 })
  app.get('/users',(req , res) => {
-         res.send(data.users)
+         res.render("pages/users")
 })
+
 //route to particular id
 app.get('/users/:id',(req , res) => {
     //const user = [data.user.id];
@@ -51,7 +52,7 @@ app.post('/users',(req , res)=>{
 
 
 app.get('/users/:id/schedules', (req,res) => {
-    const userPost =     data.schedules.filter(schedule => schedule.user_id === Number(req.params.id))
+    const userPost = data.schedules.filter(schedule => schedule.user_id === Number(req.params.id))
 
     //console.log(userPost)
     res.json(userPost)
