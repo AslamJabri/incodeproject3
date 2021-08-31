@@ -1,5 +1,5 @@
 module.exports.users = [
-    {
+    {   
         'firstname': "James",
         'lastname': "Bond",
         'email': "james.bond@gmail.com",

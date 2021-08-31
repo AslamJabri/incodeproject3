@@ -21,14 +21,44 @@ body{
     place-items: left;
 }
 h1{
-    margin: 12% auto 10px auto;
+    margin: 12% 5px 10px 5px ;
     color: black;    
+    float: left;
     
 }
 li{
     
     text-align: center;
-    margin: 3px ;
+    margin-right: 80% ;
     color: floralwhite;
+    list-style-type: none;
     
 }
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    text-shadow:  white 5px;
+    
+
+}
+table, th, td {
+    border: 1px solid black;
+    margin:1px;
+    
+  }
+.date {
+    margin: 0;
+
+ }
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 99%;
+    background-color: red;
+    color: white;
+    
+ }
+ .text{
+     text-align: center;
+ }

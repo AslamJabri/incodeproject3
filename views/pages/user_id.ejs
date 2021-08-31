@@ -1,0 +1,39 @@
+<%- include ('../partials/header');%>
+
+
+<div class = "img" style="background-image: url(/coffee.png);height: 250px; width: 99%;" ></div>
+<% //console.log(users) %> 
+<% //console.log(id) %> 
+<table style=" margin-top: 10px;border: 1px solid black;">
+    <tr style="border: 1px black;">
+        <% const userFound = users.find((user, index) => { %>
+            <% if (index == id) {%>
+                <% return user; %>
+        <%  }; %>
+        <% }); %>
+        <tr>
+            
+            <th><h4>FirstName</h4></th>
+            <th><h4>Lastname</h4></th>
+            <th><h4>Email</h4></th>
+            <th><h4>Password</h4></th>
+        </tr>
+        <tr style="border: 1px black;">
+
+            <td><p><%= userFound.firstname %></p> </td>
+            <td><p><%= userFound.lastname %></p> </td>
+            <td><p><%= userFound.email %> </p></td>
+            <td ><p><%= userFound.password %> </p></td>
+        </tr>
+
+  
+    </tr>
+</table>
+
+
+<br>
+<br>
+
+
+
+<%- include ('../partials/footer');%>

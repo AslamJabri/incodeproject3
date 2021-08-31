@@ -1,6 +1,44 @@
 <%- include ('../partials/header');%>
 
-<h1>this is users page</h1>
+
+<div class = "img" style="background-image: url(./coffee.png);height: 150px;" >
+</div>
+
+<div>
+    <h2 style="color:blue ; padding: 2px ; margin : 10px">List Of all the users</h2>
+</div>
+
+<table style="color: black; margin-top: 10px;">
+    <tr>
+        <tr>
+            <th><h3>FirstName</h3></th>
+            <th><h3>Lastname</h3></th>
+            <th><h3>Email</h3></th>
+            <th><h3>Password</h3></th>
+        </tr>
+            <% users.forEach(users => { %>
+        <tr>
+          <td><%= users.firstname %> </td>
+       
+       
+          <td><%= users.lastname %> </td>
+        
+       
+          <td><%= users.email %> </td>
+        
+       
+          <td ><%= users.password %> </td>
+        </tr>
+        <% }); %> 
+    </tr>
+</table>
+
+
+
+
+    
+
+
 
 
 <%- include ('../partials/footer');%>
