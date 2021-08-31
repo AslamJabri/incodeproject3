@@ -68,11 +68,8 @@ app.get('/users/:id/schedules', (req,res) => {
     const { id } = req.params
     let schedules = data.schedules
     const userPost = " "
-    
     let day = date()
-    
     //data.schedules.filter(schedule => schedule.user_id === Number(req.params.id))
-
     //console.log(userPost)
     res.render("pages/schedules_id", { id:id ,schedules : schedules ,userPost : userPost , day : day })
 })
