@@ -15,16 +15,29 @@
                     <th><h3>End_At</h3></th>
             </tr>
             <tr>
-                <% const userPost = schedules.filter(schedule => schedule.user_id === Number(id)) %> 
+                <%// let schedule = schedules.filter(schedule => schedule.user_id === Number(id)) %> 
+                <% //for( let i = 0; i < schedules.length; i++ ) { %>
+                    <% //console.log(schedules[i]) %>
+                   
+                        <% //if (schedules[i] . user_id === Number (id)) { %>
+                           
+                            <% //schedule.push(schedules[i]) %> 
+                            <% //console.log(schedule) %> 
+                        <% } %> 
+                <% } %>
+                
 
-                <p><%= JSON.stringify(userPost) %></p>
-
+                <% const userFound = schedules.find((user_id, index) => { %>
+                    <% if (index == id) {%>
+                        <% return user_id; %>
+                <%  }; %>
+                <% }); %>
             </tr>
         </td>
 
     </table>
-
-
+        <%//console.log(userPost.start_at)%>
+    <p><%=//JSON.stringify(userPost.user_id)%></p>
 
 
 <br>
