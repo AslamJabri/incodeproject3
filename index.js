@@ -65,16 +65,10 @@ app.get('/schedulesnew', (req , res) => {
 
 app.post('/schedules',(req , res)=>{
     
-    let {user_id , day , start_at , end_at} = req.body
-    
-   
-    
-    
+     let {user_id , day , start_at , end_at} = req.body
      const newschedule = {user_id , day , start_at , end_at}
-    
      data.schedules.push(newschedule)
-     //res.json(data.users)
-
+     
      res.render("pages/schedules" ,{schedules : data.schedules, day })
         
 })    
