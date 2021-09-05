@@ -6,7 +6,7 @@
        
         
         <h1 style="margin: 10px;"><%= day %> </h1>  
-    <table style = "margin-top: 10px;border: 1px solid black;">
+    <table style = "margin-top: 10px;margin : 10px ; border: 2px solid black;">
         <td>
             <tr>
                     <th><h3>User_id</h3></th>
@@ -14,35 +14,20 @@
                     <th><h3>Start_At</h3></th>
                     <th><h3>End_At</h3></th>
             </tr>
+            <% schedules.forEach(schedule=> { %>
             <tr>
-                <%// let schedule = schedules.filter(schedule => schedule.user_id === Number(id)) %> 
-                <% //for( let i = 0; i < schedules.length; i++ ) { %>
-                    <% //console.log(schedules[i]) %>
-                   
-                        <% //if (schedules[i] . user_id === Number (id)) { %>
-                           
-                            <% //schedule.push(schedules[i]) %> 
-                            <% //console.log(schedule) %> 
-                        <% } %> 
-                <% } %>
-                
+                    <td><%= schedule.user_id %> </td> 
 
-                <% const userFound = schedules.find((user_id, index) => { %>
-                    <% if (index == id) {%>
-                        <% return user_id; %>
-                <%  }; %>
-                <% }); %>
+                    <td><%= schedule.day %> </td>
+
+                    <td> <%= schedule.start_at %> </td>
+
+                    <td><%= schedule.end_at %></td>
             </tr>
+            <% }) %>
         </td>
 
     </table>
-        <%//console.log(userPost.start_at)%>
-    <p><%=//JSON.stringify(userPost.user_id)%></p>
-
-
 <br>
-<br>
-        
-        
-        
+<br>    
 <%- include ('../partials/footer');%>

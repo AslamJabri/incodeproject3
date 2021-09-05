@@ -1,7 +1,51 @@
 <%- include ('../partials/header');%>
 
+<div class = "img" style="height: 300px;">
+  
+  <div class = "list">
+      <h1 style="margin-top: 10px;">"Welcome to our schedule website".</h1>
+      <ul>
+          <li><a href="/"> Home</a></li>
+          <li><a href ="users">Users</a></li>
+          <li> <a href="schedules">Schedules</a></li>
+          <li><a href="usersnew"> User Add</a> </li>
+          <li><a href="schedulesnew"> Add Schedule</a> </li>
+      </ul>
+  </div>
+</div>
 
-
+<form class="row g-3" action="/schedules" method="POST">
+  <div class="col-12">
+    <label for="USER-id" class="form-label">User ID</label>
+    <input type="text" name = "user_id" class="form-control" id="inputAddress" placeholder="If existing User use your user ID">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">Day</label>
+    <select class="form-select" aria-label="Default select example" name = "day">
+      <option selected>Choose DAY</option>
+      <option value="1">Monday</option>
+      <option value="2">Tuesday</option>
+      <option value="3">Wednesday</option>
+      <option value="4">Thursday</option>
+      <option value="5">Friday</option>
+      <option value="6">Saturday</option>
+      <option value="0">Sunday</option>
+    </select>
+  <div class = "row g-3">
+  <div class="col">
+    <label for="Start_AT" class="form-label">Start_AT</label>
+    <input type="time" name = "start_at" class="form-control" id="start">
+  </div>
+  <div class="col">
+    <label for="End_At" class="form-label">End_AT</label>
+    <input type="time" class="form-control" id="End" name = "end_at">
+  </div>
+  </div>
+  
+</form>
+  
+  <button type="submit" class="btn btn-primary" style = " margin-top: 10px auto">Submit</button>
+</form>
 
 
 

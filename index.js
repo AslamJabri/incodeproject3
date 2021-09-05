@@ -26,7 +26,6 @@ app.get('/',(req , res) => {
 })
 app.get('/schedules',(req , res) => {
     let day = date()
-   
     res.render("pages/schedules",{schedules : data.schedules, day})
 })
 
@@ -41,62 +40,64 @@ app.get('/users/:id',(req , res) => {
     //const use = (data.users[req.params.id])
     
 })
-app.post('/usersnew', urlencodedParser , (req , res)=>{
-    //let {firstname , lastname , email , password} = req.body
+app.get('/usersnew', (req , res) => {
+    res.render("pages/usersnew")
+})
+app.post('/users' , (req , res)=>{
+    let {firstname , lastname , email , password} = req.body
    
-    // let {firstname , lastname , email , password} = req.body
-    
-    
-    
+        // let {firstname , lastname , email , password} = req.body
+        console.log(req.body)
+       const salt =  bcrypt.genSaltSync(10);
+       const hash =   bcrypt.hashSync(password, salt);
+       //console.log(hash)
+       const newUsers = { firstname, lastname, email, password : hash } 
+       
+         data.users.push(newUsers)
+       //res.json(data.users)
+        res.redirect ("/users")
+                
+});
+   
+app.get('/schedulesnew', (req , res) => {
+    res.render("pages/schedulesnew")
+})
 
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
+app.post('/schedules',(req , res)=>{
     
-    // //const newUser = {firstname,
-    //     lastname,
-    //    // email,
-    //     password : hash }
-    console.log(req.body)
+    let {user_id , day , start_at , end_at} = req.body
     
-    // data.users.push(newUser)
-    // res.json(data.users)
+   
+    
+    
+     const newschedule = {user_id , day , start_at , end_at}
+    
+     data.schedules.push(newschedule)
+     //res.json(data.users)
 
-    res.render('pages/usersnew',{salt ,hash , newUser , user : data.users})
+     res.render("pages/schedules" ,{schedules : data.schedules, day })
+        
 })    
-//app.post('/usersnew',(req , res)=>{
-    //let {firstname , lastname , email , password} = req.body
-    
-//     let {firstname , lastname , email , password} = req.body
-    
-//     let use = req.body
-    
-
-//     const salt = bcrypt.genSaltSync(10);
-//     const hash = bcrypt.hashSync(password, salt);
-    
-//     const newUser = {firstname,
-//     lastname,
-//     email,
-//     password : hash }
-    
-//     data.users.push(newUser)
-//     //res.json(data.users)
-
-//     res.render('pages/user_add' , {use : use ,
-//         users: data.users , 
-//          })
-// })    
 
 
 
 
 app.get('/users/:id/schedules', (req,res) => {
-    const  id  = req.params;
+    day = date()
     
-    //const userPost = data.schedules.filter(schedule => schedule.user_id === Number(req.params.id))
+    const userPost = data.schedules.filter(schedule => schedule.user_id === Number(req.params.id))
     //console.log(userPost)
-    res.render("pages/schedules_id", { id  , schedules : data.schedules , schedule : ' ', day : date() })
-})
+    if (userPost) {
+        res.render("pages/schedules_id", {
+            schedules: data.schedules.filter(
+                (schedule) => schedule.user_id === Number(req.params.id),day
+            ),
+        });
+    } else {
+        res.status(400).json({ msg: `No number with the id ${req.params.id}` });
+    }
+});
+    
     
 
 

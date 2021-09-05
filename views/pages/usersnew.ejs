@@ -8,7 +8,7 @@
             <li><a href ="users">Users</a></li>
             <li> <a href="schedules">Schedules</a></li>
             <li><a href="usersnew"> User Add</a> </li>
-            <li><a href="schedulesnew"> Schedule</a> </li>
+            <li><a href="schedulesnew"> Add Schedule</a> </li>
         </ul>
     </div>
 </div>
@@ -17,40 +17,27 @@
 
 
 
-<form action="../../data.js" method="POST" style="margin: 20px;">
+<form action="/users" method="POST" style="margin: 20px;">
     <div class="form-group" >
       <label for="firstname">First Name</label>
-      <input type="text" class="form-control" id="firstname"  placeholder="Enter firstname">
+      <input type="text" name="firstname" class="form-control" id="firstname"  placeholder="Enter firstname">
     </div>
     <div class="form-group">
         <label for="lastname">Last Name</label>
-        <input type="text" class="form-control" id="lastname"  placeholder="Enter Lastname">
+        <input type="text" name="lastname" class="form-control" id="lastname"  placeholder="Enter Lastname">
       </div>
       <div class="form-group">
         <label for="Email">Email</label>
-        <input type="email" class="form-control" id="email"  placeholder="Enter email address">
+        <input type="email"  name = "email"class="form-control" id="email"  placeholder="Enter email address">
       </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="password" name = "password"class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     
-    <button  type="submit" class="btn btn-primary">Submit</button>
+    <button  type="submit" class="btn btn-primary" style="margin: 10px;">Submit</button>
   </form>
 
 
-  <%//let {firstname , lastname , email , password} = req.body%>
-    
-  <%//let use = req.body %>
   
-
-  <!-- <%//const salt = bcrypt.genSaltSync(10);%>
-  <%//const hash = bcrypt.hashSync(password, salt);%>
-
-  
-  <%const newUser = {firstname,lastname, email, password : hash }%>
-  
-  <%users.push(newUser)%> -->
-
-
 <%- include ('../partials/footer');%>
