@@ -4,6 +4,7 @@ const app = express()
 const port = process.env.PORT || 8000
 const bcrypt = require('bcrypt');
 const date = require(__dirname + "/date.js")
+const pgp = require('pg-promise')
 
 app.use(express.json())
 app.use((express.urlencoded)({extended : false}))

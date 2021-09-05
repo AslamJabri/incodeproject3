@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS mr_coffee;
+
+
+CREATE DATABASE   mr_coffee;

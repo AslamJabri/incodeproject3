@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "create-db": "psql -U aslamali -f sql/create_db.sql",
+      "create-table": "psql -U aslamali -d mr_coffee -f sql/create_table.sql",
+      "seed-table": "psql -U aslamali -d mr_coffee -f sql/seed_tables.sql",
+      "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
